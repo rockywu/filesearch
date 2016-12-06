@@ -11,10 +11,13 @@ var readline = require("linebyline");
 function readfile(file, callback) {
     var rl = readline(file);
     rl.on("line", function (data, linecount) {
-        callback(data, file, linecount);
+        callback(null, data, file, linecount);
     });
     rl.on("error", function(e) {
-        console.log(file, e);
+        callback({
+            error: e,
+            file : file
+        });
     });
 }
 module.exports = readfile;
