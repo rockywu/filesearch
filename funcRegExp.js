@@ -28,6 +28,6 @@ function getRegExp() {
             keywords.push(RegExp.$2);
         });
     });
-    return new RegExp("(?!=[\\$\\.]+\\s*)("+keywords.join("|")+")(?=\\s*\\()", "gi");
+    return new RegExp("(?!=[\\$\\.]+\\s*)("+keywords.join("|")+")(?=\\s*\\()", "g");
 }
 module.exports = getRegExp();
