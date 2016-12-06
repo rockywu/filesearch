@@ -48,7 +48,7 @@ find.eachfile(filesRegexp, domain, function(file) {
             func  : k
         }
     });
-    mkdirp.async("./output");
+    mkdirp.sync("./output");
     var filePath = "./output/" + filename;
     fs.writeFile( filePath + "-count.json", formatToJsonStr(counts), "utf8", function() {
         logger.info("数据量文件生成成功");
