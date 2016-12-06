@@ -3,6 +3,7 @@ var func = {
     base : "$.camelCase $.contains $.each $.extend $.fn $.grep $.inArray $.isArray $.isFunction $.isNumeric $.isPlainObject $.isWindow $.map $.noop $.parseJSON $.trim $.type",
     dom : "add addClass after append appendTo attr before children clone closest concat contents css data each empty eq filter find first forEach get has hasClass height hide html index indexOf insertAfter insertBefore is last map next not offset offsetParent parent parents pluck position prepend prependTo prev prop push ready reduce remove removeAttr removeClass removeProp replaceWith scrollLeft scrollTop show siblings size slice text toggle toggleClass unwrap val width wrap wrapAll wrapInner",
     event : "$.Event $.proxy bind delegate die live off on one trigger triggerHandler unbind undelegate",
+    domEvent : "click focus blur touchstart touchend",
     ajax : "$.ajax $.ajaxJSONP $.ajaxSettings $.get $.getJSON $.param $.post load",
     form : "serialize serializeArray submit"
 };
@@ -28,6 +29,6 @@ function getRegExp() {
             keywords.push(RegExp.$2);
         });
     });
-    return new RegExp("(?!=[\\$\\.]+\\s*)("+keywords.join("|")+")(?=\\s*\\()", "g");
+    return new RegExp("\\.\\s*("+keywords.join("|")+")(?=\\s*\\()", "g");
 }
 module.exports = getRegExp();

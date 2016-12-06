@@ -50,6 +50,7 @@ find.eachfile(filesRegexp, domain, function(file) {
     });
     mkdirp.sync("./output");
     var filePath = "./output/" + filename;
+    counts.funCount = _.keys(counts).length;
     fs.writeFile( filePath + "-func.json", formatToJsonStr(counts), "utf8", function() {
         logger.info("数据量文件生成成功");
     });
