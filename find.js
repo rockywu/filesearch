@@ -7,6 +7,7 @@ var log4js = require("log4js");
 var logger = log4js.getLogger("touch-zepto");
 var fs = require("fs");
 var _ = require("underscore");
+var mkdirp = require("mkdirp");
 if(!domain) {
     console.log("路径错误");
     return;
@@ -47,6 +48,7 @@ find.eachfile(filesRegexp, domain, function(file) {
             func  : k
         }
     });
+    mkdirp.async("./output");
     var filePath = "./output/" + filename;
     fs.writeFile( filePath + "-count.json", formatToJsonStr(counts), "utf8", function() {
         logger.info("数据量文件生成成功");
